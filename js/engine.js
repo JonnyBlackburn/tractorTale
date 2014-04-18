@@ -38,10 +38,10 @@ engine.start = function(mapData, x, y)
 	engine.tile.store(0, 'img/tile_black.png'); //undefined tile
 	engine.tile.store(1, 'img/tile_grass.png');
 	engine.tile.store(2, 'img/tile_rock.png');
-	engine.tile.store(3, 'images/ladderdown.png');
-	engine.tile.store(4, 'images/ladderup.png');
-	engine.tile.store(5, 'images/cave.png');
-	engine.tile.store(6, 'images/sign.png');
+	engine.tile.store(3, 'img/ladderdown.png');
+	engine.tile.store(4, 'img/ladderup.png');
+	engine.tile.store(5, 'img/cave.png');
+	engine.tile.store(6, 'img/sign.png');
 
 	//Get player images
 	engine.player.store(0, 'img/player/up1.png');

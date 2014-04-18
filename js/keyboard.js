@@ -16,6 +16,8 @@ engine.keyboard.getValue = function(key)
 		case "s": return 83;
 		case "a": return 65;
 		case "d": return 68;
+
+		case "ctrl": return 17;
 	}
 };
 
@@ -43,6 +45,10 @@ engine.keyboard.parseInput = function(event)
 			case engine.keyboard.getValue("right"):
 			case engine.keyboard.getValue("d"):
 				engine.player.move("right");
+				break;
+
+			case engine.keyboard.getValue("ctrl"):
+				engine.player.activate();
 				break;
 		}
 	}

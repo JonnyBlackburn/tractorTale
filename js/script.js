@@ -20,5 +20,10 @@ engine.script.call =
 			engine.player.spriteIndex = 6;
 
 			engine.draw();
+		},
+
+		function()
+		{
+			engine.output("I'm in ur caves, scriptin ur science!");
 		}
 	]

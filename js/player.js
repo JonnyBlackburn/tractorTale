@@ -51,8 +51,8 @@ engine.player.calcLocation = function()
 	}
 
 	//center the character
-	var x = (screen.width / 2);
-	var y = (screen.height / 2) - (character.height);
+	var x = (screen.width / 2) - (character.width / 2);
+	var y = (screen.height / 2) + 8 - (character.height);
 
 	return {left:x, top: y};
 }
@@ -96,12 +96,13 @@ engine.player.move = function(dir)
 			break;
 	}
 
-	var targetX = engine.viewport.x + (engine.screen.tilesX / 2) - x;
-	var targetY = engine.viewport.y + (engine.screen.tilesY / 2 - 1) - y;
+	var targetX = engine.viewport.x + (engine.screen.tilesX / 2 - 0.5) - x;
+	var targetY = engine.viewport.y + (engine.screen.tilesY / 2 - 0.5) - y;
 
 	if(engine.currentMap[targetY] &&
 		engine.currentMap[targetY][targetX] &&
-		engine.currentMap[targetY][targetX].item)
+		(engine.currentMap[targetY][targetX].item == 2 ||
+		engine.currentMap[targetY][targetX].item == 6))
 	{
 		//the tile is blocked, don't move, but re-enable input
 		engine.keyboard.canInput = true;
@@ -197,4 +198,48 @@ engine.player.reset = function()
 	engine.player.spriteIndex = index;
 
 	engine.draw();
+
+	var currentTileX = x + (engine.screen.tilesX / 2 - 0.5);
+	var currentTileY = y + (engine.screen.tilesY / 2 - 0.5);
+
+	if(engine.currentMap[currentTileY] &&
+		engine.currentMap[currentTileY][currentTileX] &&
+		engine.currentMap[currentTileY][currentTileX].onenter != undefined)
+	{
+		engine.script.call[engine.currentMap[currentTileY][currentTileX].onenter]();
+	}
+};
+
+engine.player.activate = function()
+{
+	//What tile are we looking at?
+	var x = engine.viewport.x + (engine.screen.tilesX / 2 - 0.5);
+	var y = engine.viewport.y + (engine.screen.tilesY / 2 - 0.5);
+
+	//facing direction
+	switch(engine.player.spriteIndex)
+	{
+		case 0:
+			y--;
+			break;
+
+		case 3:
+			x++;
+			break;
+
+		case 6:
+			y--;
+			break;
+
+		case 9:
+			x--;
+			break;
+	}
+
+	if(engine.currentMap[y] &&
+		engine.currentMap[y][x] &&
+		engine.currentMap[y][x].onactivate != undefined)
+	{
+		engine.script.call[engine.currentMap[y][x].onactivate]();
+	}
 }
