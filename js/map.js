@@ -1,5 +1,12 @@
 engine.map = {};
 
+engine.map.current = null;
+
+engine.map.set = function(mapData)
+{
+	engine.map.current = mapData;
+};
+
 engine.map.draw = function()
 {
 	var i, j, tile; //the x and y for the loop
@@ -15,9 +22,10 @@ engine.map.draw = function()
 			mapX = i + engine.viewport.x;
 			mapY = j + engine.viewport.y;
 
-			tile = (engine.currentMap[mapY] && engine.currentMap[mapY][mapX] ? engine.currentMap[mapY][mapX] : {ground: 0});
+			tile = (engine.map.current[mapY] && engine.map.current[mapY][mapX] ? engine.map.current[mapY][mapX] : {ground: 0});
 
 			engine.tile.draw(i, j, tile);
 		}
 	}
 };
+

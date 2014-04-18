@@ -4,8 +4,8 @@ engine.script.call =
 	[
 		function()
 		{
-			engine.setMap(maptwo);
-			engine.viewport.x = -2;
+			engine.map.set(maptwo);
+			engine.viewport.x = -4;
 			engine.viewport.y = 1;
 			engine.player.spriteIndex = 6;
 
@@ -14,8 +14,8 @@ engine.script.call =
 
 		function()
 		{
-			engine.stMap(mapone);
-			engine.viewport.x = -2;
+			engine.map.set(mapone);
+			engine.viewport.x = -4;
 			engine.viewport.y = 5;
 			engine.player.spriteIndex = 6;
 

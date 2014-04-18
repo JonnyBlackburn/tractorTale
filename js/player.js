@@ -2,66 +2,20 @@ engine.player = {};
 
 engine.player.sprite = [];
 engine.player.spriteIndex = 6;
+engine.player.model = 0;
 engine.player.leftLeg = false;
-
-engine.player.store = function(index, imgSrc)
-{
-	var sprite = [new Image(), false];
-
-	sprite[0].src = imgSrc;
-	sprite[0].onLoad = function()
-	{
-		sprite[1] = true;
-	}
-
-	engine.player.sprite[index] = sprite;
-};
-
-engine.player.retrieve = function(index)
-{
-	return engine.player.sprite[index][0];
-};
-
-engine.player.allLoaded = function()
-{
-	var i;
-
-	////Have the images loaded?
-	for(i=0; i<12; i++)
-	{
-		if(engine.player.sprite[i][1] === false)
-		{
-			return false;
-		}
-	}
-
-	return true;
-};
-
-engine.player.calcLocation = function()
-{
-	var character = {
-		width: Math.ceil(engine.player.sprite[0][0].width),
-		height: Math.ceil(engine.player.sprite[0][0].height)
-	};
-
-	var screen = {
-		width: engine.screen.width,
-		height: engine.screen.height
-	}
-
-	//center the character
-	var x = (screen.width / 2) - (character.width / 2);
-	var y = (screen.height / 2) + 8 - (character.height);
-
-	return {left:x, top: y};
-}
 
 engine.player.draw = function()
 {
-	var loc = engine.player.calcLocation();
+	if(!engine.model.isLoaded(engine.player.model))
+	{
+		engine.output("[player.draw] loading model");
+		setTimeout(engine.player.draw, 10);
+	} else {
+		var loc = engine.model.screenLocation(engine.player.model);
 
-	engine.handle.drawImage(engine.player.retrieve(engine.player.spriteIndex), loc.left, loc.top);
+		engine.handle.drawImage(engine.model.list[engine.player.model][engine.player.spriteIndex][0], loc.x, loc.y);
+	}
 };
 
 engine.player.move = function(dir)
@@ -99,10 +53,10 @@ engine.player.move = function(dir)
 	var targetX = engine.viewport.x + (engine.screen.tilesX / 2 - 0.5) - x;
 	var targetY = engine.viewport.y + (engine.screen.tilesY / 2 - 0.5) - y;
 
-	if(engine.currentMap[targetY] &&
-		engine.currentMap[targetY][targetX] &&
-		(engine.currentMap[targetY][targetX].item == 2 ||
-		engine.currentMap[targetY][targetX].item == 6))
+	if(engine.map.current[targetY] &&
+		engine.map.current[targetY][targetX] &&
+		engine.map.current[targetY][targetX].solid &&
+		engine.map.current[targetY][targetX].solid == 1)
 	{
 		//the tile is blocked, don't move, but re-enable input
 		engine.keyboard.canInput = true;
@@ -202,11 +156,11 @@ engine.player.reset = function()
 	var currentTileX = x + (engine.screen.tilesX / 2 - 0.5);
 	var currentTileY = y + (engine.screen.tilesY / 2 - 0.5);
 
-	if(engine.currentMap[currentTileY] &&
-		engine.currentMap[currentTileY][currentTileX] &&
-		engine.currentMap[currentTileY][currentTileX].onenter != undefined)
+	if(engine.map.current[currentTileY] &&
+		engine.map.current[currentTileY][currentTileX] &&
+		engine.map.current[currentTileY][currentTileX].onenter != undefined)
 	{
-		engine.script.call[engine.currentMap[currentTileY][currentTileX].onenter]();
+		engine.script.call[engine.map.current[currentTileY][currentTileX].onenter]();
 	}
 };
 
@@ -236,10 +190,10 @@ engine.player.activate = function()
 			break;
 	}
 
-	if(engine.currentMap[y] &&
-		engine.currentMap[y][x] &&
-		engine.currentMap[y][x].onactivate != undefined)
+	if(engine.map.current[y] &&
+		engine.map.current[y][x] &&
+		engine.map.current[y][x].onactivate != undefined)
 	{
-		engine.script.call[engine.currentMap[y][x].onactivate]();
+		engine.script.call[engine.map.current[y][x].onactivate]();
 	}
 }
