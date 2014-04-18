@@ -3,14 +3,13 @@ var engine = {}; //Create the engine object
 engine.outputHandler = document.getElementById("output");
 engine.canvas = document.getElementById("canvas");
 engine.handle = engine.canvas.getContext("2d");
+engine.currentMap = null;
 
 engine.output = function(message)
 {
 	engine.outputHandler.innerHTML += "<br/> " + message; //Print a message to the output div
 
 };
-
-engine.currentMap = null;
 
 engine.setMap = function(mapData)
 {
@@ -39,6 +38,10 @@ engine.start = function(mapData, x, y)
 	engine.tile.store(0, 'img/tile_black.png'); //undefined tile
 	engine.tile.store(1, 'img/tile_grass.png');
 	engine.tile.store(2, 'img/tile_rock.png');
+	engine.tile.store(3, 'images/ladderdown.png');
+	engine.tile.store(4, 'images/ladderup.png');
+	engine.tile.store(5, 'images/cave.png');
+	engine.tile.store(6, 'images/sign.png');
 
 	//Get player images
 	engine.player.store(0, 'img/player/up1.png');
@@ -59,6 +62,8 @@ engine.start = function(mapData, x, y)
 
 	engine.setMap(mapData);
 	engine.draw();
+
+	engine.keyboard.canInput = true;
 
 	engine.output("done");
 };

@@ -1,5 +1,7 @@
 engine.keyboard = {};
 
+engine.keyboard.canInput = false;
+
 engine.keyboard.getValue = function(key)
 {
 	//Keycodes yey!
@@ -19,32 +21,29 @@ engine.keyboard.getValue = function(key)
 
 engine.keyboard.parseInput = function(event)
 {
-	switch(event.keyCode)
+	if(engine.keyboard.canInput === true)
 	{
-		case engine.keyboard.getValue("up"):
-		case engine.keyboard.getValue("w"):
-			engine.viewport.y--;
-			engine.player.spriteIndex = 0;
-			break;
+		switch(event.keyCode)
+		{
+			case engine.keyboard.getValue("up"):
+			case engine.keyboard.getValue("w"):
+				engine.player.move("up");
+				break;
 
-		case engine.keyboard.getValue("down"):
-		case engine.keyboard.getValue("s"):
-			engine.viewport.y++;
-			engine.player.spriteIndex = 6;
-			break;
+			case engine.keyboard.getValue("down"):
+			case engine.keyboard.getValue("s"):
+				engine.player.move("down");
+				break;
 
-		case engine.keyboard.getValue("left"):
-		case engine.keyboard.getValue("a"):
-			engine.viewport.x--;
-			engine.player.spriteIndex = 9;
-			break;
+			case engine.keyboard.getValue("left"):
+			case engine.keyboard.getValue("a"):
+				engine.player.move("left");
+				break;
 
-		case engine.keyboard.getValue("right"):
-		case engine.keyboard.getValue("d"):
-			engine.viewport.x++;
-			engine.player.spriteIndex = 3;
-			break;
+			case engine.keyboard.getValue("right"):
+			case engine.keyboard.getValue("d"):
+				engine.player.move("right");
+				break;
+		}
 	}
-
-	engine.draw();
 };
