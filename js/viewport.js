@@ -5,3 +5,5 @@ engine.viewport.y = 0;
 
 engine.viewport.playerOffsetX = 0;
 engine.viewport.playerOffsetY = 0;
+
+engine.viewport.overflowTile = 1; //Draws x number of extra tiles outside the viewport

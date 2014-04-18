@@ -1,0 +1,12 @@
+.DS_Store
+.actionScriptProperties
+.project
+.flexProperties
+.settings
+Thumbs.db
+.idea
+*.iml
+.ini
+*.properties
+
+add-opt-in.py

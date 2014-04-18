@@ -1,6 +1,7 @@
 engine.tile = {};
 
 engine.tile.images = [];
+engine.tile.tileSize = 16;
 
 engine.tile.store = function(id, imgSrc)
 {
@@ -31,13 +32,17 @@ engine.tile.retrieve = function(id)
 
 engine.tile.draw = function(x, y, tile)
 {
+
+	var rx = x * engine.tile.tileSize + engine.viewport.playerOffsetX;
+	var ry = y * engine.tile.tileSize + engine.viewport.playerOffsetY;
+
 	//Draw the ground tile
-	engine.handle.drawImage(engine.tile.retrieve(tile.ground), x * 16, y * 16);
+	engine.handle.drawImage(engine.tile.retrieve(tile.ground), rx, ry);
 
 	//Do we have a item above the ground
 	if(tile.item)
 	{
-		engine.handle.drawImage(engine.tile.retrieve(tile.item), x * 16, y * 16);
+		engine.handle.drawImage(engine.tile.retrieve(tile.item), rx, ry);
 	}
 };
 

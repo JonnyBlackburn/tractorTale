@@ -2,17 +2,15 @@ engine.map = {};
 
 engine.map.draw = function()
 {
-	var i, j; //the x and y for the loop
+	var i, j, tile; //the x and y for the loop
 	var mapX = 0;
 	var mapY = 0;
-	var tile;
+	var iMax = engine.screen.tilesX + engine.viewport.overflowTile;
+	var jMax = engine.screen.tilesY + engine.viewport.overflowTile;
 
-	engine.output("drawing map from " + engine.viewport.x + ", " + engine.viewport.y + " to " +
-		(engine.viewport.x + engine.screen.tilesX) + "," + (engine.viewport.y + engine.screen.tilesY));
-
-	for(j=0; j<engine.screen.tilesY; j++)
+	for(j = -engine.viewport.overflowTile; j < jMax; j++)
 	{
-		for(i=0; i<engine.screen.tilesX; i++)
+		for(i = -engine.viewport.overflowTile; i < iMax; i++)
 		{
 			mapX = i + engine.viewport.x;
 			mapY = j + engine.viewport.y;
