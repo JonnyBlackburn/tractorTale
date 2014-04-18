@@ -10,3 +10,4 @@ Thumbs.db
 *.properties
 
 add-opt-in.py
+/.idea/workspace.xml
