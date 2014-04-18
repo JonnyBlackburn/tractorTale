@@ -23,6 +23,17 @@ engine.model.load = function(id, folder)
 	}
 };
 
+engine.model.draw = function(model, spriteIndex, x, y)
+{
+	if(!engine.model.isLoaded(model))
+	{
+		engine.output("[model.draw] loading model " + model);
+		setTimeout(engine.model.draw, 10);
+	} else {
+		engine.handle.drawImage(engine.model.list[model][spriteIndex][0], x, y);
+	}
+};
+
 engine.model.isLoaded = function(id)
 {
 	var i;
@@ -40,21 +51,16 @@ engine.model.isLoaded = function(id)
 };
 
 
-engine.model.screenLocation = function(id)
+engine.model.fixScreenLoc = function(id, base)
 {
 	var character = {
 		width: Math.ceil(engine.model.list[id][0][0].width),
 		height: Math.ceil(engine.model.list[id][0][0].height)
 	};
 
-	var screen = {
-		width: engine.screen.width,
-		height: engine.screen.height
-	};
-
 	//center the character
-	var x = (screen.width / 2) - (character.width / 2);
-	var y = (screen.height / 2) - (character.height) + 8;
+	var x = (base.x / 2) - (character.width / 2);
+	var y = (base.y / 2) - character.height + (engine.tileSize / 2);
 
 	return {x: Math.ceil(x), y: Math.ceil(y)};
 };

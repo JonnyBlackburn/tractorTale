@@ -1,7 +1,6 @@
 engine.tile = {};
 
 engine.tile.images = [];
-engine.tile.tileSize = 16;
 
 engine.tile.store = function(id, imgSrc)
 {
@@ -32,8 +31,8 @@ engine.tile.retrieve = function(id)
 
 engine.tile.draw = function(x, y, tile)
 {
-	var rx = x * engine.tile.tileSize + engine.viewport.playerOffsetX;
-	var ry = y * engine.tile.tileSize + engine.viewport.playerOffsetY;
+	var rx = x * engine.tileSize + engine.viewport.playerOffsetX;
+	var ry = y * engine.tileSize + engine.viewport.playerOffsetY;
 
 	//Draw the ground tile
 	engine.handle.drawImage(engine.tile.retrieve(tile.ground), rx, ry);

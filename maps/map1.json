@@ -1,22 +1,22 @@
 {
-   "name": "map 1",
+   "name": "mapone",
    "mapID": 0,
 
-   "level":
+   "map":
    [
       [{"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}],
       [{"ground":1, "item":2, "solid":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1, "item":2, "solid":1}],
       [{"ground":1, "item":2, "solid":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1, "item":2, "solid":1}],
       [{"ground":1, "item":2, "solid":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1, "item":2, "solid":1}],
-      [{"ground":1, "item":2, "solid":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1, "item":2, "solid":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1, "item":2, "solid":1}],
-      [{"ground":1, "item":2, "solid":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1}, {"ground":1}, {"ground":1, "item":2, "solid":1}],
-      [{"ground":1, "item":2, "solid":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1, "item":2, "solid":1}, {"ground":1}, {"ground":1}, {"ground":1, "item":2, "solid":1}],
-      [{"ground":1, "item":2, "solid":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1, "item":2, "solid":1}, {"ground":1}, {"ground":1}, {"ground":1, "item":2, "solid":1}],
-      [{"ground":1, "item":2, "solid":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1, "item":2, "solid":1}, {"ground":1}, {"ground":1}, {"ground":1, "item":2, "solid":1}],
-      [{"ground":1, "item":2, "solid":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1, "item":2, "solid":1}],
-      [{"ground":1, "item":2, "solid":1}, {"ground":1}, {"ground":1, "item": 3, "onactivate": 0, "solid": 1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1, "item":2, "solid":1}],
+      [{"ground":1, "item":2, "solid":1}, {"ground":1}, {"ground":1, "item":3, "onscreen":2}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1, "item":2, "solid":1}],
       [{"ground":1, "item":2, "solid":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1, "item":2, "solid":1}],
       [{"ground":1, "item":2, "solid":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1, "item":2, "solid":1}],
+      [{"ground":1, "item":2, "solid":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1, "item":2, "solid":1}],
+      [{"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1, "item":2, "solid":1}],
+      [{"ground":1, "item":2, "solid":1}, {"ground":10, "onscreen":1}, {"ground":10, "onscreen":1}, {"ground":10, "onscreen":1}, {"ground":10, "onscreen":1}, {"ground":1, "item":2, "solid":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1, "item":2, "solid":1}],
+      [{"ground":1, "item":2, "solid":1}, {"ground":10, "onscreen":1}, {"ground":10, "onscreen":1}, {"ground":10, "onscreen":1}, {"ground":10, "onscreen":1}, {"ground":10, "onscreen":1}, {"ground":1, "item":2, "solid":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1, "item":2, "solid":1}],
+      [{"ground":1, "item":2, "solid":1}, {"ground":10, "onscreen":1}, {"ground":10, "onscreen":1}, {"ground":10, "onscreen":1}, {"ground":10, "onscreen":1}, {"ground":10, "onscreen":1}, {"ground":10, "onscreen":1}, {"ground":1, "item":2, "solid":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1, "item":2, "solid":1}],
+      [{"ground":1, "item":2, "solid":1}, {"ground":10, "onscreen":1}, {"ground":10, "onscreen":1}, {"ground":10, "onscreen":1}, {"ground":10, "onscreen":1}, {"ground":10, "onscreen":1}, {"ground":10, "onscreen":1}, {"ground":1, "item":2, "solid":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1, "item":2, "solid":1}],
       [{"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}]
    ],
 
@@ -24,23 +24,61 @@
    [
       {
          "id": 0,
-         "src": "img/tile_black.png"
+         "src": "images/tile_black.png"
       },
       {
          "id": 1,
-         "src": "img/tile_grass.png"
+         "src": "images/tile_grass.png"
       },
       {
          "id": 2,
-         "src": "img/tile_rock.png"
+         "src": "images/tile_rock.png"
       },
       {
          "id": 3,
-         "src": "img/sign.png"
+         "src": "images/flower_1.png"
       },
       {
          "id": 4,
-         "src": "img/ladderdown.png"
+         "src": "images/flower_2.png"
+      },
+      {
+         "id": 5,
+         "src": "images/flower_3.png"
+      },
+
+
+      {
+         "id": 10,
+         "src": "images/water1.png"
+      },
+      {
+         "id": 11,
+         "src": "images/water2.png"
+      },
+      {
+         "id": 12,
+         "src": "images/water3.png"
+      },
+      {
+         "id": 13,
+         "src": "images/water4.png"
+      },
+      {
+         "id": 14,
+         "src": "images/water5.png"
+      },
+      {
+         "id": 15,
+         "src": "images/water6.png"
+      },
+      {
+         "id": 16,
+         "src": "images/water7.png"
+      },
+      {
+         "id": 17,
+         "src": "images/water8.png"
       }
    ],
 
@@ -48,16 +86,15 @@
    [
       {
          "id": 0,
-         "name": "player"
+         "name": "scientist"
       }
    ],
 
    "scripts":
    [
-      {
-         "id": 0,
-         "data": "engine.output('Wanna be an scientist?'); engine.draw();"
-      }
+   ],
+
+   "npcs":
+   [
    ]
 }
-

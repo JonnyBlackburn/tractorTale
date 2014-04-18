@@ -7,16 +7,10 @@ engine.player.leftLeg = false;
 
 engine.player.draw = function()
 {
-	if(!engine.model.isLoaded(engine.player.model))
-	{
-		engine.output("[player.draw] loading model");
-		setTimeout(engine.player.draw, 10);
-	} else {
-		var loc = engine.model.screenLocation(engine.player.model);
+	var loc = engine.model.fixScreenLoc(engine.player.model, {x: engine.screen.width, y: engine.screen.height});
 
-		engine.handle.drawImage(engine.model.list[engine.player.model][engine.player.spriteIndex][0], loc.x, loc.y);
-	}
-};
+	engine.model.draw(engine.player.model, engine.player.spriteIndex, loc.x, loc.y);
+}
 
 engine.player.move = function(dir)
 {
@@ -56,13 +50,14 @@ engine.player.move = function(dir)
 
 	var targetTile = engine.map.get(targetX, targetY);
 
-	if(engine.map.tileHasProperty(targetTile, "solid", 1))
+	if(engine.map.tileHasProperty(targetTile, "solid", 1) ||
+		engine.npc.isNPCAt(targetX, targetY))
 	{
 		//the tile is blocked, don't move, but re-enable input
 		engine.keyboard.canInput = true;
 	} else {
-		engine.viewport.playerOffsetX = x * 5; //We only added one before, so move the player the correct amount
-		engine.viewport.playerOffsetY = y * 5;
+		engine.viewport.playerOffsetX = x * Math.ceil(5 / 16 * engine.tileSize); //We only added one before, so move the player the correct amount
+		engine.viewport.playerOffsetY = y * Math.ceil(5 / 16 * engine.tileSize);
 
 		setTimeout(engine.player.animate, 200);
 		setTimeout(engine.player.reset, 400);
@@ -74,25 +69,27 @@ engine.player.move = function(dir)
 
 engine.player.animate = function()
 {
-	var x, y;
+	var x, y, px;
 	x = y = 0;
+
+	px = Math.ceil(11 / 16 * engine.tileSize);
 
 	switch(engine.player.spriteIndex)
 	{
 		case 0:
-			y = 11;
+			y = px;
 			break;
 
 		case 3:
-			x = -11;
+			x = -px;
 			break;
 
 		case 6:
-			y = -11;
+			y = -px;
 			break;
 
 		case 9:
-			x = 11;
+			x = px;
 			break;
 	}
 

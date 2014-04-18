@@ -45,6 +45,11 @@ engine.data.parse = function(response, callback)
 		engine.model.load(json.models[i].id, json.models[i].name);
 	}
 
+	for(i = 0; i < json.npcs.length; i++)
+	{
+		engine.npc.add(json.npcs[i].id, json.npcs[i].model, json.npcs[i].x, json.npcs[i].y);
+	}
+
 	for(i = 0; i < json.scripts.length; i++)
 	{
 		engine.script.add(json.scripts[i].id, json.scripts[i].data);

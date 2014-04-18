@@ -10,8 +10,8 @@ engine.viewport.overflowTile = 1; //Draws x number of extra tiles outside the vi
 
 engine.viewport.set = function(x, y)
 {
-	var vx = x - (engine.screen.width  - engine.tile.tileSize) / 32;
-	var vy = y - (engine.screen.height - engine.tile.tileSize) / 32;
+	var vx = x - (engine.screen.width  - engine.tileSize) / (engine.tileSize * 2);
+	var vy = y - (engine.screen.height - engine.tileSize) / (engine.tileSize * 2);
 
 	engine.viewport.x = vx;
 	engine.viewport.y = vy;

@@ -60,3 +60,30 @@ engine.map.get = function(x, y)
 	}
 };
 
+engine.map.onscreen = function()
+{
+	var i, j, tile;
+
+	var mapX = 0;
+	var mapY = 0;
+
+	var jMax = engine.screen.tilesX + engine.viewport.overflowTile;
+	var iMax = engine.screen.tilesY + engine.viewport.overflowTile;
+
+	for(j = -engine.viewport.overflowTile; j < jMax; j++)
+	{
+		for(i = -engine.viewport.overflowTile; i < iMax; i++)
+		{
+			mapX = i + engine.viewport.x;
+			mapY = i + engine.viewport.y;
+
+			tile = engine.map.get(mapX, mapY);
+
+			if(engine.map.tileHasProperty(tile, "onscreen"))
+			{
+				engine.script.call(tile.onscreen, engine.combineObjects(tile, {x: mapX, y: mapY}));
+			}
+		}
+	}
+};
+
