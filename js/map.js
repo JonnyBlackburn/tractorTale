@@ -1,10 +1,11 @@
 engine.map = {};
 
-engine.map.current = null;
+engine.map.current = -1;
+engine.map.list = [];
 
-engine.map.set = function(mapData)
+engine.map.set = function(mapID)
 {
-	engine.map.current = mapData;
+	engine.map.current = mapID;
 };
 
 engine.map.draw = function()
@@ -22,10 +23,40 @@ engine.map.draw = function()
 			mapX = i + engine.viewport.x;
 			mapY = j + engine.viewport.y;
 
-			tile = (engine.map.current[mapY] && engine.map.current[mapY][mapX] ? engine.map.current[mapY][mapX] : {ground: 0});
+			tile = engine.map.get(mapX, mapY);
 
+			if(tile === undefined)
+			{
+				tile = {ground: 0};
+
+			}
 			engine.tile.draw(i, j, tile);
 		}
+	}
+};
+
+engine.map.tileHasProperty = function(tile, property, value)
+{
+	if(tile !== undefined && tile[property] !== undefined)
+	{
+		if(value !== undefined)
+		{
+			return tile[property] == value;
+		}
+		return true;
+	} else {
+		return false;
+	}
+};
+
+engine.map.get = function(x, y)
+{
+	if(engine.map.list[engine.map.current][y] &&
+		engine.map.list[engine.map.current][y][x])
+	{
+		return engine.map.list[engine.map.current][y][x];
+	} else {
+		return undefined;
 	}
 };
 

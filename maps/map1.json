@@ -1,0 +1,63 @@
+{
+   "name": "map 1",
+   "mapID": 0,
+
+   "level":
+   [
+      [{"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}],
+      [{"ground":1, "item":2, "solid":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1, "item":2, "solid":1}],
+      [{"ground":1, "item":2, "solid":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1, "item":2, "solid":1}],
+      [{"ground":1, "item":2, "solid":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1, "item":2, "solid":1}],
+      [{"ground":1, "item":2, "solid":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1, "item":2, "solid":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1, "item":2, "solid":1}],
+      [{"ground":1, "item":2, "solid":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1}, {"ground":1}, {"ground":1, "item":2, "solid":1}],
+      [{"ground":1, "item":2, "solid":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1, "item":2, "solid":1}, {"ground":1}, {"ground":1}, {"ground":1, "item":2, "solid":1}],
+      [{"ground":1, "item":2, "solid":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1, "item":2, "solid":1}, {"ground":1}, {"ground":1}, {"ground":1, "item":2, "solid":1}],
+      [{"ground":1, "item":2, "solid":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1, "item":2, "solid":1}, {"ground":1}, {"ground":1}, {"ground":1, "item":2, "solid":1}],
+      [{"ground":1, "item":2, "solid":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1, "item":2, "solid":1}],
+      [{"ground":1, "item":2, "solid":1}, {"ground":1}, {"ground":1, "item": 3, "onactivate": 0, "solid": 1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1, "item":2, "solid":1}],
+      [{"ground":1, "item":2, "solid":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1, "item":2, "solid":1}],
+      [{"ground":1, "item":2, "solid":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1}, {"ground":1, "item":2, "solid":1}],
+      [{"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}, {"ground":1, "item":2, "solid":1}]
+   ],
+
+   "tiles":
+   [
+      {
+         "id": 0,
+         "src": "img/tile_black.png"
+      },
+      {
+         "id": 1,
+         "src": "img/tile_grass.png"
+      },
+      {
+         "id": 2,
+         "src": "img/tile_rock.png"
+      },
+      {
+         "id": 3,
+         "src": "img/sign.png"
+      },
+      {
+         "id": 4,
+         "src": "img/ladderdown.png"
+      }
+   ],
+
+   "models":
+   [
+      {
+         "id": 0,
+         "name": "player"
+      }
+   ],
+
+   "scripts":
+   [
+      {
+         "id": 0,
+         "data": "engine.output('Wanna be an scientist?'); engine.draw();"
+      }
+   ]
+}
+

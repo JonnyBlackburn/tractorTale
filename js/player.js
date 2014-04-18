@@ -50,19 +50,19 @@ engine.player.move = function(dir)
 			break;
 	}
 
+	//What tile do we want to move to
 	var targetX = engine.viewport.x + (engine.screen.tilesX / 2 - 0.5) - x;
 	var targetY = engine.viewport.y + (engine.screen.tilesY / 2 - 0.5) - y;
 
-	if(engine.map.current[targetY] &&
-		engine.map.current[targetY][targetX] &&
-		engine.map.current[targetY][targetX].solid &&
-		engine.map.current[targetY][targetX].solid == 1)
+	var targetTile = engine.map.get(targetX, targetY);
+
+	if(engine.map.tileHasProperty(targetTile, "solid", 1))
 	{
 		//the tile is blocked, don't move, but re-enable input
 		engine.keyboard.canInput = true;
 	} else {
 		engine.viewport.playerOffsetX = x * 5; //We only added one before, so move the player the correct amount
-		engine.viewport.playerOffsetY = y * 5; //We only added one before, so move the player the correct amount
+		engine.viewport.playerOffsetY = y * 5;
 
 		setTimeout(engine.player.animate, 200);
 		setTimeout(engine.player.reset, 400);
@@ -156,11 +156,12 @@ engine.player.reset = function()
 	var currentTileX = x + (engine.screen.tilesX / 2 - 0.5);
 	var currentTileY = y + (engine.screen.tilesY / 2 - 0.5);
 
-	if(engine.map.current[currentTileY] &&
-		engine.map.current[currentTileY][currentTileX] &&
-		engine.map.current[currentTileY][currentTileX].onenter != undefined)
+	var currentTile = engine.map.get(currentTileX, currentTileY);
+
+	if(engine.map.tileHasProperty(currentTile, "onenter"))
 	{
-		engine.script.call[engine.map.current[currentTileY][currentTileX].onenter]();
+		var scriptID = currentTile.onenter;
+		engine.script.call(scriptID);
 	}
 };
 
@@ -190,10 +191,11 @@ engine.player.activate = function()
 			break;
 	}
 
-	if(engine.map.current[y] &&
-		engine.map.current[y][x] &&
-		engine.map.current[y][x].onactivate != undefined)
+	var lookingAtTile = engine.map.get(x, y);
+
+	if(engine.map.tileHasProperty(lookingAtTile, "onactivate"))
 	{
-		engine.script.call[engine.map.current[y][x].onactivate]();
+		var scriptID = lookingAtTile.onactivate;
+		engine.script.call(scriptID);
 	}
 }

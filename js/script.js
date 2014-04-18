@@ -1,29 +1,15 @@
 engine.script = {};
 
-engine.script.call =
-	[
-		function()
-		{
-			engine.map.set(maptwo);
-			engine.viewport.x = -4;
-			engine.viewport.y = 1;
-			engine.player.spriteIndex = 6;
+engine.script.list = [];
 
-			engine.draw();
-		},
+engine.script.call = function(id)
+{
+	var scriptString = engine.script.list[id];
 
-		function()
-		{
-			engine.map.set(mapone);
-			engine.viewport.x = -4;
-			engine.viewport.y = 5;
-			engine.player.spriteIndex = 6;
+	eval("(function eval_csf(){" + scriptString + "})();");
+};
 
-			engine.draw();
-		},
-
-		function()
-		{
-			engine.output("I'm in ur caves, scriptin ur science!");
-		}
-	]
+engine.script.add = function(id, data)
+{
+	engine.script.list[id] = data;
+};

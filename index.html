@@ -30,7 +30,8 @@
 
 	<div id='output'></div>
 
-	<canvas id="canvas" width="208" height="144"></canvas>
+	<!-- Needs to be a multiple of 32 (16 X 2) -->
+	<canvas id="canvas" width="400" height="272"></canvas>
 
 	<script src="js/engine.js"></script> <!-- Include this first! -->
 	<script src="js/tile.js"></script>
@@ -41,43 +42,18 @@
 	<script src="js/player.js"></script>
 	<script src="js/script.js"></script>
 	<script src="js/model.js"></script>
+	<script src="js/data.js"></script>
 
 	<script>
 
-		var mapone =
-			[
-				[{ground:1, item:2, solid:1}, {ground:1, item:2, solid:1}, {ground:1, item:2, solid:1}, {ground:1, item:2, solid:1}, {ground:1, item:2, solid:1}, {ground:1, item:2, solid:1}, {ground:1, item:2, solid:1}, {ground:1, item:2, solid:1}, {ground:1, item:2, solid:1}, {ground:1, item:2, solid:1}, {ground:1, item:2, solid:1}, {ground:1, item:2, solid:1}],
-				[{ground:1, item:2, solid:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1, item:2, solid:1}],
-				[{ground:1, item:2, solid:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1, item:2, solid:1}],
-				[{ground:1, item:2, solid:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1, item:2, solid:1}],
-				[{ground:1, item:2, solid:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1, item:2, solid:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1, item:2, solid:1}],
-				[{ground:1, item:2, solid:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1, item:2, solid:1}, {ground:1, item:2, solid:1}, {ground:1}, {ground:1}, {ground:1, item:2, solid:1}],
-				[{ground:1, item:2, solid:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1, item:2, solid:1}, {ground:1}, {ground:1}, {ground:1, item:2, solid:1}],
-				[{ground:1, item:2, solid:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1, item:2, solid:1}, {ground:1}, {ground:1}, {ground:1, item:2, solid:1}],
-				[{ground:1, item:2, solid:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1, item:2, solid:1}, {ground:1}, {ground:1}, {ground:1, item:2, solid:1}],
-				[{ground:1, item:2, solid:1}, {ground:1}, {ground:1, item:3, onenter:0}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1, item:2, solid:1}],
-				[{ground:1, item:2, solid:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1, item:2, solid:1}],
-				[{ground:1, item:2, solid:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1, item:2, solid:1}],
-				[{ground:1, item:2, solid:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1}, {ground:1, item:2, solid:1}],
-				[{ground:1, item:2, solid:1}, {ground:1, item:2, solid:1}, {ground:1, item:2, solid:1}, {ground:1, item:2, solid:1}, {ground:1, item:2, solid:1}, {ground:1, item:2, solid:1}, {ground:1, item:2, solid:1}, {ground:1, item:2, solid:1}, {ground:1, item:2, solid:1}, {ground:1, item:2, solid:1}, {ground:1, item:2, solid:1}, {ground:1, item:2, solid:1}]
-			];
-
-		var maptwo =
-			[
-				[{ground:5, item:2, solid:1}, {ground:5, item:2, solid:1}, {ground:5, item:2, solid:1}, {ground:5, item:2, solid:1}, {ground:5, item:2, solid:1}, {ground:5, item:2, solid:1}, {ground:5, item:2, solid:1}, {ground:5, item:2, solid:1}, {ground:5, item:2, solid:1}, {ground:5, item:2, solid:1}, {ground:5, item:2, solid:1}, {ground:5, item:2, solid:1}],
-				[{ground:5, item:2, solid:1}, {ground:5}, {ground:5}, {ground:5}, {ground:5}, {ground:5}, {ground:5}, {ground:5}, {ground:5}, {ground:5}, {ground:5}, {ground:5, item:2, solid:1}],
-				[{ground:5, item:2, solid:1}, {ground:5}, {ground:5}, {ground:5}, {ground:5}, {ground:5}, {ground:5}, {ground:5}, {ground:5}, {ground:5}, {ground:5}, {ground:5, item:2, solid:1}],
-				[{ground:5, item:2, solid:1}, {ground:5}, {ground:5}, {ground:5}, {ground:5}, {ground:5}, {ground:5}, {ground:5}, {ground:5,item:6, onactivate:2, solid:1}, {ground:5}, {ground:5}, {ground:5, item:2, solid:1}],
-				[{ground:5, item:2, solid:1}, {ground:5}, {ground:5}, {ground:5}, {ground:5}, {ground:5}, {ground:5}, {ground:5}, {ground:5}, {ground:5}, {ground:5}, {ground:5, item:2, solid:1}],
-				[{ground:5, item:2, solid:1}, {ground:5}, {ground:5, item:4, onenter:1}, {ground:5}, {ground:5}, {ground:5}, {ground:5}, {ground:5}, {ground:5}, {ground:5}, {ground:5}, {ground:5, item:2, solid:1}],
-				[{ground:5, item:2, solid:1}, {ground:5}, {ground:5}, {ground:5}, {ground:5}, {ground:5}, {ground:5}, {ground:5}, {ground:5}, {ground:5}, {ground:5}, {ground:5, item:2, solid:1}],
-				[{ground:5, item:2, solid:1}, {ground:5}, {ground:5}, {ground:5}, {ground:5}, {ground:5}, {ground:5}, {ground:5}, {ground:5}, {ground:5}, {ground:5}, {ground:5, item:2, solid:1}],
-				[{ground:5, item:2, solid:1}, {ground:5, item:2, solid:1}, {ground:5, item:2, solid:1}, {ground:5, item:2, solid:1}, {ground:5, item:2, solid:1}, {ground:5, item:2, solid:1}, {ground:5, item:2, solid:1}, {ground:5, item:2, solid:1}, {ground:5, item:2, solid:1}, {ground:5, item:2, solid:1}, {ground:5, item:2, solid:1}, {ground:5, item:2, solid:1}]
-			];
-
 		window.addEventListener('load', function()
 		{
-			engine.start(mapone, 0, 0);
+			engine.data.load("maps/map1.json", function()
+			{
+				engine.start(0, 1, 1);
+
+			});
+
 		}, false);
 
 		window.addEventListener('keydown', engine.keyboard.parseInput, false);

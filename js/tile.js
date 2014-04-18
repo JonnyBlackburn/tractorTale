@@ -32,7 +32,6 @@ engine.tile.retrieve = function(id)
 
 engine.tile.draw = function(x, y, tile)
 {
-
 	var rx = x * engine.tile.tileSize + engine.viewport.playerOffsetX;
 	var ry = y * engine.tile.tileSize + engine.viewport.playerOffsetY;
 
